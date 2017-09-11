@@ -1,4 +1,4 @@
-package group.Pizza_Ordering_App_1;
+package group.Pizza_Ordering_App;
 
 /**
  * Hello world!
