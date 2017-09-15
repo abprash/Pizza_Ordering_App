@@ -39,14 +39,18 @@ public class Play {
 		System.out.println(inputElements);
 		WebDriverWait wait = new WebDriverWait(ffDriver, 15);
 		//wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Register')]")));
+		WebElement inputBox = null;
+		WebElement searchButton = null;
 		for(WebElement element : inputElements){
 			//System.out.println(element.getClass());
 			String attribute  = element.getAttribute("value");
 			if(attribute.equals("Google Search"))
-			{
-				element.click();
-			}
+				searchButton = element;
+			if(element.getAttribute("id").equals("lst-ib"))
+				inputBox = element;
 		}
+		inputBox.sendKeys("dominos");
+		searchButton.click();
 		String content = ffDriver.getCurrentUrl();
 		String source = ffDriver.getPageSource();
 		Navigation navigator = ffDriver.navigate();
