@@ -13,6 +13,7 @@ import org.openqa.selenium.WebDriver.Navigation;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * @author abprashanth
@@ -36,8 +37,15 @@ public class Play {
 		//lets click a button
 		List<WebElement> inputElements = ffDriver.findElements(By.tagName("input"));
 		System.out.println(inputElements);
+		WebDriverWait wait = new WebDriverWait(ffDriver, 15);
+		//wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Register')]")));
 		for(WebElement element : inputElements){
 			//System.out.println(element.getClass());
+			String attribute  = element.getAttribute("value");
+			if(attribute.equals("Google Search"))
+			{
+				element.click();
+			}
 		}
 		String content = ffDriver.getCurrentUrl();
 		String source = ffDriver.getPageSource();
@@ -49,7 +57,7 @@ public class Play {
 		System.out.println("--------------");
 		//System.out.println(source);
 		//System.out.println(windowHandles);
-		ffDriver.close();
+		//ffDriver.close();
 		
 	}
 }
