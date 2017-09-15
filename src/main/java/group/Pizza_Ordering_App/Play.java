@@ -4,6 +4,7 @@
 package group.Pizza_Ordering_App;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.openqa.selenium.By;
@@ -29,23 +30,26 @@ public class Play {
 		
 		System.setProperty("webdriver.gecko.driver","/home/abprashanth/resources/geckodriver");
 		System.setProperty("webdriver.chrome.driver", "/home/abprashanth/resources/chromedriver");
-		//WebDriver ffDriver = new FirefoxDriver();
-		WebDriver chromeDriver = new ChromeDriver();
-		chromeDriver.get("https://google.com");
+		WebDriver ffDriver = new FirefoxDriver();
+		//WebDriver chromeDriver = new ChromeDriver();
+		ffDriver.get("https://google.com");
 		//lets click a button
-		WebElement submitButton = chromeDriver.findElement(By.ById.id("_fZl"));
-		submitButton.click();
-		String content = chromeDriver.getCurrentUrl();
-		String source = chromeDriver.getPageSource();
-		Navigation navigator = chromeDriver.navigate();
-		Set<String> windowHandles = chromeDriver.getWindowHandles();
+		List<WebElement> inputElements = ffDriver.findElements(By.tagName("input"));
+		System.out.println(inputElements);
+		for(WebElement element : inputElements){
+			//System.out.println(element.getClass());
+		}
+		String content = ffDriver.getCurrentUrl();
+		String source = ffDriver.getPageSource();
+		Navigation navigator = ffDriver.navigate();
+		Set<String> windowHandles = ffDriver.getWindowHandles();
 		//navigator.to("https://facebook.com");
 		
 		//System.out.println(content);
 		System.out.println("--------------");
-		System.out.println(source);
+		//System.out.println(source);
 		//System.out.println(windowHandles);
-		chromeDriver.close();
+		ffDriver.close();
 		
 	}
 }
