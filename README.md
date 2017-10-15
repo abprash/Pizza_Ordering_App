@@ -2,3 +2,5 @@
 
 + Personal pizza ordering application
 + Toy project to learn Selenium
+
+> Still under development!!
